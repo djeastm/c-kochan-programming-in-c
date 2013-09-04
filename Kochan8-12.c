@@ -4,7 +4,7 @@
 int main (void)
 {
 	void	scalarMultiply (int  matrix[3][5], int	scalar);
-	void 	displayMatrix (int	matrix[3][5]);
+	void 	displayMatrix (int  matrix[3][5]);
 	int		sampleMatrix[3][5] =
 			{
 					{  7, 16, 55, 13, 12 },
