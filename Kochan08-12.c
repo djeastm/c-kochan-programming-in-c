@@ -1,51 +1,38 @@
-// Using multidimensional arrays and functions
+// Program to sort an array of integers into ascending order
 #include <stdio.h>
+
+void sort (int a[], int n)
+{
+	int i, j, temp;
+	
+	for ( i = 0; i < n - 1; ++i )
+		for ( j = i + 1; j < n; ++j )
+			if ( a[i] > a[j] ) {
+				temp = a[i];
+				a[i] = a[j];
+				a[j] = temp;
+			}	
+}
 
 int main (void)
 {
-	void	scalarMultiply (int  matrix[3][5], int	scalar);
-	void 	displayMatrix (int  matrix[3][5]);
-	int		sampleMatrix[3][5] =
-			{
-					{  7, 16, 55, 13, 12 },
-					{ 12, 10, 52,  0,  7 },
-					{ -2,  1,  2,  4,  9 }
-			};
+	int i;
+	int array[16] = { 34, -5, 6, 0, 12, 100, 56, 22,
+					  44, -3, -9, 12, 17, 22, 6, 11 };
+	void sort (int a[], int n);
+
+	printf ("The array before the sort:\n");
+
+	for ( i = 0; i < 16; ++i )
+		printf ("%i ", array[i]);
 	
-	printf ("Original matrix:\n");
-	displayMatrix (sampleMatrix);
+	sort (array, 16);
 
-	scalarMultiply (sampleMatrix, 2);
+	printf ("\n\nThe array after the sort:\n");
 
-	printf("\nMultiplied by 2:\n");			
-	displayMatrix (sampleMatrix);
-
-	scalarMultiply (sampleMatrix, -1);
-
-	printf("\nThen multiplied by -1:\n");
-	displayMatrix (sampleMatrix);
+	for ( i = 0; i < 16; ++i )
+		printf ("%i ", array[i]);
+		printf ("\n");
 
 	return 0;
-}
-
-// Function to multiply a 3 x 5 array by a scalarMultiply
-
-void	scalarMultiply (int  matrix[3][5], int  scalar)
-{
-	int	row, column;
-
-	for ( row = 0;  row < 3;  ++row )
-		for ( column = 0;  column < 5;  ++column )
-			matrix[row][column]  *=  scalar;
-}
-
-void	displayMatrix (int  matrix[3][5])
-{
-	int	row, column;
-
-	for ( row = 0;  row < 3;  ++row)	{
-		for ( column = 0;  column < 5;  ++column )
-			printf ("%5i", matrix[row][column]);
-			printf ("\n");
-	}
 }
